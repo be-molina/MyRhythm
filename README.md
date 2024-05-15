@@ -1,2 +1,6 @@
-# MyRhythm
-Proyecto programación Web
+PROGRAMACION WEB PROYECTO
+
+***************************14/05/2024*******************************
+
+
+UPDATE GENERAL DE TODO EL PROYECTO, PREPARADO PARA SEGUNDA ENTREGA PROPUESTA
