@@ -70,36 +70,41 @@
     <button id="searchButton" class="btn btn-primary" type="button">Buscar</button>
 </form>
 
-          <script>
-          document.addEventListener('DOMContentLoaded', function() {
-            const apiKey = 'TU_CLAVE_DE_API'; // Reemplaza con tu clave de API
-            const searchEndpoint = 'URL_DE_LA_API_DE_BUSQUEDA'; // Reemplaza con la URL de la API de búsqueda
-            
-            const searchButton = document.getElementById('searchButton');
-            searchButton.addEventListener('click', async function() {
-                const searchTerm = document.getElementById('searchInput').value;
-                
-                if (searchTerm.trim() !== '') {
-                    try {
-                        const response = await fetch(`${searchEndpoint}?q=${encodeURIComponent(searchTerm)}&apiKey=${apiKey}`);
-                        const data = await response.json();
-                        
-                       
-                        console.log(data);
+<script>
+    // Configuración de la API
+    const apiKey = 'AIzaSyAg49FzwCZDHt0q4WZhFJlJmqxAbYUXIRw';
+    const searchEngineId = '359214ea335554852'; 
+
+    // Manejar el evento de envío del formulario
+    document.getElementById('searchForm').addEventListener('submit', async function(event) {
+        event.preventDefault(); // Evitar que el formulario se envíe por defecto
+
+        const searchTerm = document.getElementById('searchInput').value;
+
+        // Realizar la solicitud a la API de Google Custom Search
+        const url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${searchEngineId}&q=${encodeURIComponent(searchTerm)}`;
         
-                    
-                        window.location.href = `resultados.html?q=${encodeURIComponent(searchTerm)}`;
-                    } catch (error) {
-                        console.error('Error al realizar la búsqueda:', error);
-                        
-                    }
-                } else {
-                    console.log('El campo de búsqueda está vacío');
-                }
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+
+            // Mostrar los resultados en el contenedor de búsqueda
+            const searchResultsContainer = document.getElementById('searchResults');
+            searchResultsContainer.innerHTML = ''; // Limpiar resultados anteriores
+            
+            data.items.forEach(item => {
+                const resultItem = document.createElement('p');
+                resultItem.textContent = `${item.title}: ${item.link}`;
+                searchResultsContainer.appendChild(resultItem);
             });
-        });
-       
+        } catch (error) {
+            console.error('Error al realizar la búsqueda:', error);
+        }
+    });
+</script>
+    <script async src="https://cse.google.com/cse.js?cx=359214ea335554852">
     </script>
+    <div class="gcse-search"></div>
 
 
             <a class="btn-login" href="login.html">
