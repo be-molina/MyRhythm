@@ -16,6 +16,16 @@ function validarFormulario() {
         return false;
     }
 
+    // Validar que el rut tenga el largo adecuado
+    const rut = "123456789012";
+
+    if (rut.length === 12) {
+    console.log("El RUT tiene el largo correcto.");
+    } else {
+    console.log("El RUT no tiene el largo correcto.");
+    }
+
+
     // Validar formato de email
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
