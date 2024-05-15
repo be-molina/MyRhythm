@@ -61,92 +61,100 @@
                 <li class="nav-item">
                     <a class="nav-link active text-light" aria-current="page" href="#">Contáctanos</a>
                 </li>
+                <li class="nav-item  active text-light">
+                    <a class="nav-link text-light" href="https://qiuxiang.github.io/tuner/app/">Afinador
+                    </a>
+                </li>
             </ul>
 
-          <!--Barra de busqueda con API de Google utilizando javaScript-->  
+            <!--Barra de busqueda con API de Google utilizando javaScript-->
 
-          
-          
-          <style>
-            #searchResults {
-                border: 1px solid #ccc;
-                padding: 10px;
-                max-width: 400px; /* Ancho máximo del recuadro de resultados */
-                margin: 20px auto; /* Centrar el recuadro en la página */
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-                border-radius: 5px; /* Bordes redondeados */
-            }
-    
-            #searchResults h3 {
-                margin-top: 0;
-            }
-    
-            #searchResults a {
-                text-decoration: none;
-                color: #007bff;
-            }
-        </style>
-    
-    <body>
- 
-    
-        <!-- Formulario de Búsqueda -->
-        <form id="searchForm">
-            <input id="searchInput" type="search" placeholder="Buscar..." aria-label="Buscar">
-            <button type="button" onclick="performSearch()">Buscar</button>
-        </form>
-    
-        <!-- Script para manejar la búsqueda con la API -->
-        <script>
-            async function performSearch() {
-                const apiKey = 'AIzaSyAg49FzwCZDHt0q4WZhFJlJmqxAbYUXIRw';
-                const searchEngineId = '359214ea335554852';
-                const searchTerm = document.getElementById('searchInput').value.trim();
-    
-                if (searchTerm === '') {
-                    alert('Por favor, ingresa un término de búsqueda');
-                    return;
+
+
+            <style>
+                #searchResults {
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                    max-width: 400px;
+                    /* Ancho máximo del recuadro de resultados */
+                    margin: 20px auto;
+                    /* Centrar el recuadro en la página */
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    /* Sombra ligera */
+                    border-radius: 5px;
+                    /* Bordes redondeados */
                 }
-    
-                const url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${searchEngineId}&q=${encodeURIComponent(searchTerm)}`;
-    
-                try {
-                    const response = await fetch(url);
-                    const data = await response.json();
-    
-                    displaySearchResults(data.items);
-                } catch (error) {
-                    console.error('Error al realizar la búsqueda:', error);
+
+                #searchResults h3 {
+                    margin-top: 0;
                 }
-            }
-    
-            function displaySearchResults(results) {
-                if (results && results.length > 0) {
-                    const searchResultsHTML = results.map(result => `
+
+                #searchResults a {
+                    text-decoration: none;
+                    color: #007bff;
+                }
+            </style>
+
+            <body>
+
+
+                <!-- Formulario de Búsqueda -->
+                <form id="searchForm">
+                    <input id="searchInput" type="search" placeholder="Buscar..." aria-label="Buscar">
+                    <button type="button" onclick="performSearch()">Buscar</button>
+                </form>
+
+                <!-- Script para manejar la búsqueda con la API -->
+                <script>
+                    async function performSearch() {
+                        const apiKey = 'AIzaSyAg49FzwCZDHt0q4WZhFJlJmqxAbYUXIRw';
+                        const searchEngineId = '359214ea335554852';
+                        const searchTerm = document.getElementById('searchInput').value.trim();
+
+                        if (searchTerm === '') {
+                            alert('Por favor, ingresa un término de búsqueda');
+                            return;
+                        }
+
+                        const url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${searchEngineId}&q=${encodeURIComponent(searchTerm)}`;
+
+                        try {
+                            const response = await fetch(url);
+                            const data = await response.json();
+
+                            displaySearchResults(data.items);
+                        } catch (error) {
+                            console.error('Error al realizar la búsqueda:', error);
+                        }
+                    }
+
+                    function displaySearchResults(results) {
+                        if (results && results.length > 0) {
+                            const searchResultsHTML = results.map(result => `
                         <div>
                             <h3><a href="${result.link}" target="_blank">${result.title}</a></h3>
                             <p>${result.snippet}</p>
                         </div>
                     `).join('');
-    
-                    const newWindow = window.open('', '_blank'); // Abrir una nueva ventana en blanco
-                    newWindow.document.body.innerHTML = `
+
+                            const newWindow = window.open('', '_blank'); // Abrir una nueva ventana en blanco
+                            newWindow.document.body.innerHTML = `
                         <h2>Resultados de Búsqueda</h2>
                         <div id="searchResults">${searchResultsHTML}</div>
                     `;
-                } else {
-                    alert('No se encontraron resultados para esta búsqueda.');
-                }
-            }
-        </script>
+                        } else {
+                            alert('No se encontraron resultados para esta búsqueda.');
+                        }
+                    }
+                </script>
 
 
 
 
 
-            <a class="btn-login" href="login.html">
-                <i class="bi bi-box-arrow-in-right text-decoration"></i>
-            </a>
+                <a class="btn-login" href="login.html">
+                    <i class="bi bi-box-arrow-in-right text-decoration"></i>
+                </a>
         </div>
     </nav>
 
@@ -186,9 +194,9 @@
             <div class="card-body">
                 <h5 class="card-title"> Kit de microfonos profesionales H1</h5>
                 <p class="card-text">Micrófonos de calidad para capturar sonidos nítidos y profesionales.
-                    </p>
-                    <p class="card-text">$114.990
-                    </p>
+                </p>
+                <p class="card-text">$114.990
+                </p>
             </div>
             <div class="card-footer">
                 <small class="text-body-secondary">Last updated 20 mins ago</small>
@@ -211,7 +219,7 @@
             <img src="img/card3.jpg" class="card-img-top" alt="card-3">
             <div class="card-body">
                 <h5 class="card-title">Bateria electrica </h5>
-                <p class="card-text">Experimenta la emoción de tocar la batería electrónica, 
+                <p class="card-text">Experimenta la emoción de tocar la batería electrónica,
                     con una variedad de sonidos y funciones para explorar tu creatividad musical sin límites.
                 </p>
                 <p class="card-text">$299.990
@@ -225,12 +233,12 @@
             <img src="img/card4.jpg" class="card-img-top" alt="card-4">
             <div class="card-body">
                 <h5 class="card-title">Violin Yamaha</h5>
-                <p class="card-text">Descubre la belleza y la expresividad del violín con 
+                <p class="card-text">Descubre la belleza y la expresividad del violín con
                     instrumentos cuidadosamente construidos,
                     perfectos para músicos que buscan calidad y estilo en cada nota.</p>
-                    <p class="card-text">
-                        $60.200
-                    </p>
+                <p class="card-text">
+                    $60.200
+                </p>
             </div>
             <div class="card-footer">
                 <small class="text-body-secondary">Last updated 3 mins ago</small>
@@ -239,11 +247,12 @@
     </div>
 
 
+
     <!--Modal-->
 
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-Contacto en vivo    </button>
+        Contacto en vivo </button>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -276,12 +285,12 @@ Contacto en vivo    </button>
             </div>
             <div class="box">
                 <h2>SOBRE NOSOTROS</h2>
-                <p>  En My Rhythm estamos comprometidos a ofrecerte la mejor selección de instrumentos musicales y 
+                <p> En My Rhythm estamos comprometidos a ofrecerte la mejor selección de instrumentos musicales y
                     accesorios de alta calidad. Con pasión por la música, nuestro objetivo es satisfacer tus necesidades
-                     musicales y ayudarte a encontrar los productos perfectos para tu pasión.
+                    musicales y ayudarte a encontrar los productos perfectos para tu pasión.
 
                 </p>
-         
+
             </div>
             <div class="box">
                 <h2>SIGUENOS</h2>
@@ -311,58 +320,58 @@ Contacto en vivo    </button>
 
     <!--Lazy Loading-->
     <script>
-       
-    document.addEventListener("DOMContentLoaded", function() {
-    let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
 
-    if ("IntersectionObserver" in window) {
-        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    let lazyImage = entry.target;
-                    lazyImage.src = lazyImage.dataset.src;
-                    lazyImage.classList.remove("lazy");
-                    lazyImageObserver.unobserve(lazyImage);
-                }
-            });
-        });
+        document.addEventListener("DOMContentLoaded", function () {
+            let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
 
-        lazyImages.forEach(function(lazyImage) {
-            lazyImageObserver.observe(lazyImage);
-        });
-    } else {
-        // Fallback para navegadores que no soporten ciertas funciones
-        let lazyLoadThrottleTimeout;
-        function lazyLoad() {
-            if (lazyLoadThrottleTimeout) {
-                clearTimeout(lazyLoadThrottleTimeout);
-            }
-
-            lazyLoadThrottleTimeout = setTimeout(function() {
-                let scrollTop = window.pageYOffset;
-                lazyImages.forEach(function(img) {
-                    if (img.offsetTop < (window.innerHeight + scrollTop)) {
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                    }
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
                 });
-                if (lazyImages.length == 0) {
-                    document.removeEventListener("scroll", lazyLoad);
-                    window.removeEventListener("resize", lazyLoad);
-                    window.removeEventListener("orientationchange", lazyLoad);
+
+                lazyImages.forEach(function (lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            } else {
+                // Fallback para navegadores que no soporten ciertas funciones
+                let lazyLoadThrottleTimeout;
+                function lazyLoad() {
+                    if (lazyLoadThrottleTimeout) {
+                        clearTimeout(lazyLoadThrottleTimeout);
+                    }
+
+                    lazyLoadThrottleTimeout = setTimeout(function () {
+                        let scrollTop = window.pageYOffset;
+                        lazyImages.forEach(function (img) {
+                            if (img.offsetTop < (window.innerHeight + scrollTop)) {
+                                img.src = img.dataset.src;
+                                img.classList.remove('lazy');
+                            }
+                        });
+                        if (lazyImages.length == 0) {
+                            document.removeEventListener("scroll", lazyLoad);
+                            window.removeEventListener("resize", lazyLoad);
+                            window.removeEventListener("orientationchange", lazyLoad);
+                        }
+                    }, 20);
                 }
-            }, 20);
-        }
 
-        document.addEventListener("scroll", lazyLoad);
-        window.addEventListener("resize", lazyLoad);
-        window.addEventListener("orientationchange", lazyLoad);
-    }
-});
-</script>
+                document.addEventListener("scroll", lazyLoad);
+                window.addEventListener("resize", lazyLoad);
+                window.addEventListener("orientationchange", lazyLoad);
+            }
+        });
+    </script>
 
 
-    
+
 </body>
 
 </html>
