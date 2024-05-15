@@ -65,19 +65,40 @@
 
           <!--Barra de busqueda con API de Google utilizando javaScript-->  
 
-          <form id="searchForm">
-            <input id="searchInput" type="search" placeholder="Buscar..." aria-label="Buscar">
-            <button type="submit">Buscar</button>
-        </form>
+          
+          
+          <style>
+            #searchResults {
+                border: 1px solid #ccc;
+                padding: 10px;
+                max-width: 400px; /* Ancho máximo del recuadro de resultados */
+                margin: 20px auto; /* Centrar el recuadro en la página */
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+                border-radius: 5px; /* Bordes redondeados */
+            }
     
-        <!-- Contenedor para mostrar los resultados de búsqueda -->
-        <div id="searchResults"></div>
+            #searchResults h3 {
+                margin-top: 0;
+            }
+    
+            #searchResults a {
+                text-decoration: none;
+                color: #007bff;
+            }
+        </style>
+    
+    <body>
+ 
+    
+        <!-- Formulario de Búsqueda -->
+        <form id="searchForm">
+            <input id="searchInput" type="search" placeholder="Buscar..." aria-label="Buscar">
+            <button type="button" onclick="performSearch()">Buscar</button>
+        </form>
     
         <!-- Script para manejar la búsqueda con la API -->
         <script>
-            document.getElementById('searchForm').addEventListener('submit', async function(event) {
-                event.preventDefault(); // Evitar que el formulario se envíe por defecto
-    
+            async function performSearch() {
                 const apiKey = 'AIzaSyAg49FzwCZDHt0q4WZhFJlJmqxAbYUXIRw';
                 const searchEngineId = '359214ea335554852';
                 const searchTerm = document.getElementById('searchInput').value.trim();
@@ -97,29 +118,32 @@
                 } catch (error) {
                     console.error('Error al realizar la búsqueda:', error);
                 }
-            });
+            }
     
             function displaySearchResults(results) {
-                const searchResultsContainer = document.getElementById('searchResults');
-                searchResultsContainer.innerHTML = ''; // Limpiar resultados anteriores
-    
                 if (results && results.length > 0) {
-                    results.forEach(result => {
-                        const resultItem = document.createElement('div');
-                        resultItem.innerHTML = `
+                    const searchResultsHTML = results.map(result => `
+                        <div>
                             <h3><a href="${result.link}" target="_blank">${result.title}</a></h3>
                             <p>${result.snippet}</p>
-                        `;
-                        searchResultsContainer.appendChild(resultItem);
-                    });
+                        </div>
+                    `).join('');
+    
+                    const newWindow = window.open('', '_blank'); // Abrir una nueva ventana en blanco
+                    newWindow.document.body.innerHTML = `
+                        <h2>Resultados de Búsqueda</h2>
+                        <div id="searchResults">${searchResultsHTML}</div>
+                    `;
                 } else {
-                    searchResultsContainer.textContent = 'No se encontraron resultados para esta búsqueda.';
+                    alert('No se encontraron resultados para esta búsqueda.');
                 }
             }
         </script>
 
 
-    <div class="gcse-search"></div>
+
+
+
             <a class="btn-login" href="login.html">
                 <i class="bi bi-box-arrow-in-right text-light"></i>
             </a>
