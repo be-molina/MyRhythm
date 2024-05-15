@@ -289,22 +289,8 @@ Contacto en vivo    </button>
 });
 </script>
 
- <!--Cargar script de Bootstrap de manera asíncrona-->
- 
-<script>
-    function loadScriptAsync(src, callback) {
-        var script = document.createElement('script');
-        script.src = src;
-        script.async = true;
-        script.onload = callback;
-        document.head.appendChild(script);
-    }
+
     
-    
-    loadScriptAsync('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js', function() {
-        console.log('Bootstrap JS loaded asynchronously');
-    });
-    </script>
 </body>
 
 </html>
