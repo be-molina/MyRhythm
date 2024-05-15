@@ -8,7 +8,6 @@ function validarFormulario() {
     var genero = document.getElementById("genero").value;
     var email = document.getElementById("email").value;
     var celular = document.getElementById("celular").value;
-    var motivacion = document.getElementById("motivacion").value;
 
     // Validar que todos los campos estén completos
     if (rut === "" || apellidoPaterno === "" || apellidoMaterno === "" || nombre === "" || fechaNacimiento === "" || edad === "" || genero === "" || email === "" || celular === "" || motivacion === "") {
