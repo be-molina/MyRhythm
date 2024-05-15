@@ -8,12 +8,12 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: rgb(59, 70, 82);
+    background: rgb(65, 97, 131);
 }
 
 /*Navbar*/
 .navbar {
-    background-color: #0a1a2a;
+    background-color: #023d79;
 
 }
 .navbar .container .navbar-brand img{
@@ -25,6 +25,7 @@ body {
     display: block;
     margin-left: 0.5%;
     margin-right: 0.5%;
+    color: #fff;
     background-color: #fff;
     border-radius: 10px;
     padding: 8px 13px;
@@ -39,7 +40,7 @@ body {
 h2 {
     text-align: center;
     color: #ffffff;
-    font-size: 45px;
+    font-size: 40px;
     margin-bottom: 20px;
 }
 
@@ -101,7 +102,7 @@ margin: 20px;
 /*Footer*/
 .footer {
     width: 100%;
-    background-color: #0a141d;
+    background-color: #023d79;
 }
 
 .footer .grupo-1 {
@@ -145,7 +146,7 @@ margin: 20px;
     line-height: 45px;
     color: #fff;
     margin-right: 10px;
-    background-color: #0d2033;
+    background-color: #023d79;
     text-align: center;
     transition: all 300ms ease;
 }
@@ -155,7 +156,7 @@ margin: 20px;
 }
 
 .footer .grupo-2 {
-    background-color:   #0a1a2a;
+    background-color:   #023d79;
     padding: 15px 10px;
     text-align: center;
     color: #fff;
@@ -174,7 +175,7 @@ margin: 20px;
 
 .container .row .btn{
     display: block;
-    background-color: #060e52;
+    background-color: #023d79;
     border-radius: 10px;
     padding: 8px 13px;
     margin-bottom: 10px;
@@ -183,5 +184,5 @@ margin: 20px;
 
 .btn:hover {
     background-color: transparent;
-    border: 2px solid #060e52;
+    border: 2px solid #023d79;
 }
